@@ -1,0 +1,21 @@
+deploymentName: products-service
+deploymentLabel: products
+replicaCount: 1
+
+databaseUrl: jdbc:mysql://127.0.0.1:3306/storeproductdb?useSSL=false&useUnicode=true&characterEncoding=utf-8&allowMultiQueries=true
+
+image:
+  repository: adebola/store-products
+  tag: latest
+
+containerPort: 8082
+
+service:
+  type: LoadBalancer
+  port: 8082
+  targetPort: 8082
+
+zipkin_enabled: true
+profile_enabled: true
+oauth2_enabled: true
+mysql_enabled: true

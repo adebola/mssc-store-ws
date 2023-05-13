@@ -1,0 +1,8 @@
+global:
+  scrape_interval: 1m # Scrape Interval
+  evaluation_interval: 1m # Evaluate rules interval
+scrape_configs:
+  - job_name: 'products'
+    metrics_path: /actuator/prometheus
+    static_configs:
+      - targets: ['products']

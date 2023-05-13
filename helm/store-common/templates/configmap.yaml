@@ -1,0 +1,15 @@
+{{- define "common.configmap" -}}
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: {{ .Values.global.configMapName }}
+data:
+  SPRING_ZIPKIN_BASEURL: {{ .Values.global.zipkinBaseUrl }}
+  SPRING_PROFILES_ACTIVE: {{ .Values.global.activeProfile }}
+  SPRING_SECURITY_OAUTH2_RESOURCESERVER_JWT_ISSUER-URI: {{ .Values.global.oauth2Issuer }}
+  SPRING_SECURITY_OAUTH2_RESOURCESERVER_JWT_JWK-SET-URI:  {{ .Values.global.oauth2Jwk }}
+  SPRING_DATASOURCE_DRIVER-CLASS-NAME: {{ .Values.global.dataDriver }}
+  SPRING_DATASOURCE_HIKARI_AUTO-COMMIT: {{ .Values.global.dataAutoCommit }}
+  SPRING_DATASOURCE_HIKARI_MAXIMUM-POOL-SIZE: {{ .Values.global.dataSize}}
+  SPRING_DATA_SOURCE_URL: {{ .Values.global.databaseUrl}}
+{{- end -}}
